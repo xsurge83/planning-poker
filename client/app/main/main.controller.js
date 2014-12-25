@@ -11,18 +11,7 @@
     this.cards = CARDS;
   }
 
-  MainCtrl.prototype.selectCard = function select(card) {
-    debugger;
-    if (card != this.selectedCard) {
-      if(!this.selectedCard){
-        this.selectedCard = card ;
-      } else {
-        this.selectedCard.selected = false;
-        this.selectedCard = card;
-      }
-      this.selectedCard.selected = true;
-    }
-  }
+
 
   CARDS = [
     {

@@ -1,0 +1,11 @@
+<div class="palette-wrapper">
+    <div class="palette">
+        <div class="palette-color-wrapper" ng-repeat="card in pokerCardsCtrl.cards" ng-click="pokerCardsCtrl.selectCard(card)">
+            <div class="palette-color palette-color--color animated zoomIn" ng-class="{'selected': card.selected}">
+                <div><i class="mdi-navigation-check"></i>
+                    <label class="palette-color-label palette-color-label--white" >{{::card.value}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

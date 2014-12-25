@@ -1,5 +1,5 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-<header class="hero-unit" id="banner">
+<header>
     <div class="container">
         <h1>'Allo, 'Allo!</h1>
         <p class="lead">Kick-start your next web app with Angular Fullstack</p>
@@ -9,27 +9,17 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Select card:</h1>
-            <div class="palette-wrapper">
-                <div class="palette">
-                    <div class="palette-color-wrapper" ng-repeat="card in mainCtrl.cards" ng-click="mainCtrl.selectCard(card)">
-                        <div class="palette-color palette-color--color animated zoomIn" ng-class="{'selected': card.selected}">
-                            <div><i class="mdi-navigation-check"></i>
-                                <label class="palette-color-label palette-color-label--white" >{{::card.value}}</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <poker-cards cards="mainCtrl.cards"></poker-cards>
         </div>
     </div>
 </div>
 <footer class="footer">
     <div class="container">
-        <p>
-            Angular Fullstack v2.0.13 |
-            <a href="https://twitter.com/tyhenkel">@tyhenkel</a>
-            |
-            <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a>
-        </p>
+        <!--<p>-->
+            <!--Angular Fullstack v2.0.13 |-->
+            <!--<a href="https://twitter.com/tyhenkel">@tyhenkel</a>-->
+            <!--|-->
+            <!--<a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a>-->
+        <!--</p>-->
     </div>
 </footer>
