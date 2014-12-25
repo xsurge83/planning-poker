@@ -1,5 +1,6 @@
 @palette-border-color : #374046;
 @palette-bg-color : #4393B9;
+@palette-font-size : 24px;
 
 .palette-wrapper {
   width: 100%;
@@ -58,11 +59,11 @@
   }
   i {
     color: #fff;
-    bottom: 10px;
-    right: 15px;
+    top: 60%;
+    right: 10px;
     line-height: 1;
     position: absolute;
-    font-size: 32px;
+    font-size: @palette-font-size;
     font-weight: 100;
     -webkit-transition: all 200ms ease;
     transition: all 200ms ease;
@@ -96,10 +97,11 @@
   left: 10px;
   line-height: 1;
   position: relative;
-  font-size: 24px;
+  font-size: @palette-font-size;
   font-weight: 1000;
   opacity: 0.8;
   text-transform: uppercase;
+
 }
 
 .palette-color-label--white {
