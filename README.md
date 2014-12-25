@@ -5,6 +5,6 @@
 5. use flex box https://github.com/philipwalton/talks
 4. menu for tasks http://plnkr.co/edit/OUwivoXY24HQTZyugZvQ?p=preview 
 5. maybe http://foundation.zurb.com/apps/app-templates/productivity/#!/
+6. explore snap.svg
 
-http://www.materialpalette.com/
-? 0 1/2 1 2 3 5 8 13 20 40 100 ~ 
+

@@ -2,7 +2,6 @@
 <header class="hero-unit" id="banner">
     <div class="container">
         <h1>'Allo, 'Allo!</h1>
-
         <p class="lead">Kick-start your next web app with Angular Fullstack</p>
         <img src="assets/images/yeoman.png" alt="I'm Yeoman"></div>
 </header>
@@ -12,97 +11,10 @@
             <h1 class="page-header">Select card:</h1>
             <div class="palette-wrapper">
                 <div class="palette">
-                    <div class="palette-color-wrapper">
-                        <div class="palette-color palette-color--color animated zoomIn">
-                            <div style="background: #f44336;"><i class="mdi-navigation-check"></i>
-                                <label class="palette-color-label palette-color-label--white">?</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="palette-color-wrapper">
-                        <div class="palette-color palette-color--color animated zoomIn">
-                            <div style="background: green;"><i class="mdi-navigation-check"></i>
-                                <label class="palette-color-label palette-color-label--white">0</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="palette-color-wrapper">
-                        <div class="palette-color palette-color--color animated zoomIn">
-                            <div style="background: #f44336;">
-                                <i class="mdi-navigation-check"></i>
-                                <label class="palette-color-label palette-color-label--white">1</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="palette-color-wrapper">
-                        <div class="palette-color palette-color--color animated zoomIn">
-                            <div style="background: green;">
-                                <i class="mdi-navigation-check"></i>
-                                <label class="palette-color-label palette-color-label--white">2</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="palette-color-wrapper">
-                        <div class="palette-color palette-color--color animated zoomIn">
-                            <div style="background: purple">
-                                <i class="mdi-navigation-check"></i>
-                                <label class="palette-color-label palette-color-label--white">3</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="palette-color-wrapper">
-                        <div class="palette-color palette-color--color animated zoomIn">
-                            <div style="background: green;">
-                                <i class="mdi-navigation-check"></i>
-                                <label class="palette-color-label palette-color-label--white">5</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="palette-color-wrapper">
-                        <div class="palette-color palette-color--color animated zoomIn">
-                            <div style="background: blue;">
-                                <i class="mdi-navigation-check"></i>
-                                <label class="palette-color-label palette-color-label--white">8</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="palette-color-wrapper">
-                        <div class="palette-color palette-color--color animated zoomIn">
-                            <div style="background: blue;">
-                                <i class="mdi-navigation-check"></i>
-                                <label class="palette-color-label palette-color-label--white">13</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="palette-color-wrapper">
-                        <div class="palette-color palette-color--color animated zoomIn">
-                            <div style="background: blue;">
-                                <i class="mdi-navigation-check"></i>
-                                <label class="palette-color-label palette-color-label--white">20</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="palette-color-wrapper">
-                        <div class="palette-color palette-color--color animated zoomIn">
-                            <div style="background: blue;">
-                                <i class="mdi-navigation-check"></i>
-                                <label class="palette-color-label palette-color-label--white">40</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="palette-color-wrapper">
-                        <div class="palette-color palette-color--color animated zoomIn">
-                            <div style="background: blue;">
-                                <i class="mdi-navigation-check"></i>
-                                <label class="palette-color-label palette-color-label--white">100</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="palette-color-wrapper">
-                        <div class="palette-color palette-color--color animated zoomIn">
-                            <div style="background: blue;">
-                                <i class="mdi-navigation-check"></i>
-                                <label class="palette-color-label palette-color-label--white">infinite</label>
+                    <div class="palette-color-wrapper" ng-repeat="card in mainCtrl.cards" ng-click="mainCtrl.selectCard(card)">
+                        <div class="palette-color palette-color--color animated zoomIn" ng-class="{'selected': card.selected}">
+                            <div><i class="mdi-navigation-check"></i>
+                                <label class="palette-color-label palette-color-label--white" >{{::card.value}}</label>
                             </div>
                         </div>
                     </div>

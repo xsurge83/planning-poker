@@ -6,6 +6,7 @@ angular.module('planningPokerApp')
       .state('main', {
         url: '/',
         templateUrl: 'app/main/main.html',
+        controllerAs : 'mainCtrl',
         controller: 'MainCtrl'
       });
   });
