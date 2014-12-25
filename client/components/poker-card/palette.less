@@ -72,9 +72,9 @@
 }
 
 .palette-color--color:hover div, .palette-color--color.selected div, .palette-color--color:hover.selected div {
-  -webkit-transform: scale(0.9);
-  -ms-transform: scale(0.9);
-  transform: scale(0.9);
+  -webkit-transform: scale(0.9) translate(-10px);
+  -ms-transform: scale(0.9) translate(-10px);
+  transform: scale(0.9) translate(-10px);
   cursor: pointer;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
 }
@@ -86,6 +86,7 @@
   transform: rotate(360deg);
   opacity: 1;
 }
+
 
 .palette-color--color.selected label, .palette-color--color:hover.selected label {
   opacity: 1;
