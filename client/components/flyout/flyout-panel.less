@@ -1,0 +1,35 @@
+@flyout-panel-width : 246px;
+
+.flyout-panel-aside {
+//  background: #f0f0f0;
+//  border-top-left-radius: 3px;
+//  border-top-right-radius: 0;
+//  border-bottom-right-radius: 0;
+//  border-bottom-left-radius: 0;
+//  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, .4);
+//  box-shadow: 0 0 6px rgba(0, 0, 0, .4);
+//  bottom: 0;
+//  padding: 12px 6px 0 12px;
+  position: absolute;
+
+  width: @flyout-panel-width;
+  z-index: 5;
+
+
+  &.right {
+    right: 0;
+    top: 0;
+    &.ng-hide-remove.ng-hide-remove-active {
+      -webkit-animation: bounceInRight 1s;
+      -moz-animation: bounceInRight 1s;
+      -ms-animation: bounceInRight 1s;
+      animation: bounceInRight 1s;
+    }
+    &.ng-hide-add.ng-hide-add-active {
+      -webkit-animation: bounceOutRight 1s;
+      -moz-animation: bounceOutRight 1s;
+      -ms-animation: bounceOutRight 1s;
+      animation: bounceOutRight 1s;
+    }
+  }
+}

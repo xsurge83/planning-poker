@@ -9,6 +9,11 @@
   function MainCtrl($http) {
     this.selectedCard;
     this.cards = CARDS;
+    this.showTasks = false;
+  }
+
+  MainCtrl.prototype.toggleTasks = function toggleTasks(){
+    this.showTasks = !this.showTasks;
   }
 
 
