@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('planningPokerApp')
-  .controller('NavbarCtrl', function ($scope, $location) {
+  .controller('NavbarCtrl', function ($scope, $location, User) {
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
@@ -12,4 +12,6 @@ angular.module('planningPokerApp')
     $scope.isActive = function(route) {
       return route === $location.path();
     };
+
+    $scope.user = User.getLoggedInUser();
   });
