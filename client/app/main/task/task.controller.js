@@ -15,7 +15,7 @@
 
   TaskCtrl.prototype.addTask = function addTask() {
     this.taskService.addTask(this.newTask)
-    this.newTodo = "";
+    this.newTask = "";
   };
 
   TaskCtrl.prototype.removeTask = function removeTask(index) {
