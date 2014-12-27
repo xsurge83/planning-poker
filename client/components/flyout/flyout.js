@@ -17,6 +17,7 @@
       controller: function ($scope, $rootScope, $element, $attrs) {
         var _flyoutId = $attrs.flyoutId;
         $scope.show = false;
+        $scope.heading = $attrs.heading;
         $rootScope.$on(FLYOUT_TOGGLE_EVENT, function toggle(event, flyoutId) {
           if (_flyoutId === flyoutId) {
             $scope.show = !$scope.show;

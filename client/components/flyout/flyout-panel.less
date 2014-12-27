@@ -1,15 +1,6 @@
 @flyout-panel-width : 246px;
 
 .flyout-panel-aside {
-//  background: #f0f0f0;
-//  border-top-left-radius: 3px;
-//  border-top-right-radius: 0;
-//  border-bottom-right-radius: 0;
-//  border-bottom-left-radius: 0;
-//  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, .4);
-//  box-shadow: 0 0 6px rgba(0, 0, 0, .4);
-//  bottom: 0;
-//  padding: 12px 6px 0 12px;
   position: absolute;
 
   width: @flyout-panel-width;
@@ -32,4 +23,15 @@
       animation: bounceOutRight 1s;
     }
   }
+  .panel-heading {
+    position: relative;
+  }
+}
+
+.flyout-panel-close-btn {
+  position: absolute;
+  left: -34px;
+  top: 4px;
+  border-right: 0;
+  background-color: @panel-default-heading-bg;
 }
