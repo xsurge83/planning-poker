@@ -15,6 +15,7 @@
     this.taskService = TaskService;
 
     $rootScope.$on(TASK_ADDED_EVENT, function(event, task){
+      debugger;
       if(!_this.currentTask && _this.currentTask != task){
         _this.currentTask = task;
       }
@@ -38,7 +39,9 @@
     this.currentTask = this.taskService.previousTask(this.currentTask);
   };
 
-
+  MainCtrl.prototype.addTask = function addTask(task){
+    this.taskService.addTask(task);
+  };
 
   CARDS = [
     {

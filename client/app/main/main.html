@@ -29,8 +29,13 @@
         <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{ mainCtrl.currentTask.text || 'Please add a new task..' }}
+                    <form ng-hide="mainCtrl.currentTask"  ng-submit="mainCtrl.addTask(mainCtrl.newTask)">
+                        <input ng-model="mainCtrl.newTask" type="text" class="form-control"
+                                             placeholder="Enter new task">
+                    </form>
+                    <div ng-show="mainCtrl.currentTask">{{ mainCtrl.currentTask.text }}</div>
                 </div>
+
                 <div class="panel-body">
                     <div class="btn-group btn-group-justified" role="group" aria-label="...">
                         <div class="btn-group" role="group">
