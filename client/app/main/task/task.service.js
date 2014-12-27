@@ -30,4 +30,20 @@
     this.tasks = [];
   };
 
+  TaskService.prototype.nextTask = function nextTask(task){
+    var taskIndex = this.tasks.indexOf(task), nextTaskItem;
+    if(taskIndex >=0 && taskIndex +1 < this.tasks.length) {
+      nextTaskItem = this.tasks[taskIndex + 1];
+    }
+    return nextTaskItem;
+  };
+
+  TaskService.prototype.previousTask = function previousTask(task){
+    var taskIndex = this.tasks.indexOf(task), prevTask;
+    if(taskIndex >=0 && taskIndex - 1 >= 0) {
+      prevTask = this.tasks[taskIndex - 1];
+    }
+    return prevTask;
+  };
+
 })();
