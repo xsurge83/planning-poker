@@ -6,7 +6,7 @@
 
 var errors = require('./components/errors');
 
-module.exports = function(app) {
+module.exports = function(app, io) {
 
   // Insert routes below
   app.use('/api/things', require('./api/thing'));
@@ -19,5 +19,21 @@ module.exports = function(app) {
   app.route('/*')
     .get(function(req, res) {
       res.sendfile(app.get('appPath') + '/index.html');
+    });
+
+  var chat = io
+    .of('/chat')
+    .on('connection', function (socket) {
+      socket.emit('a message', {
+        that: 'only'
+        , '/chat': 'will get'
+      });
+      chat.emit('a message', {
+        everyone: 'in'
+        , '/chat': 'will get'
+      });
+      chat.on('hi', function(data){
+        console.log(data);
+      })
     });
 };
