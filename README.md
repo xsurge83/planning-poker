@@ -7,4 +7,5 @@
 5. maybe http://foundation.zurb.com/apps/app-templates/productivity/#!/
 6. explore snap.svg
 http://www.planningpoker.com/
+https://github.com/daniel-lundin/snabbt.js
 
