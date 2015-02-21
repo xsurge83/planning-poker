@@ -12,6 +12,5 @@ angular.module('planningPokerApp')
     $scope.isActive = function(route) {
       return route === $location.path();
     };
-
     $scope.user = User.getLoggedInUser();
   });

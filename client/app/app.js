@@ -19,15 +19,4 @@ angular.module('planningPokerApp', [
   });
 
 
-//var chat = io.connect('http://localhost/chat');
-//
-//chat.on('connect', function (socket) {
-//  socket.join('some room', function(){
-//    debugger;
-//    chat.to('some room').emit('message', 'hi room');
-//  });
-//
-//});
-//chat.on('a message', function(data){
-//  debugger;
-//})
+
