@@ -13,14 +13,24 @@
       getCurrentUsers : function(){
         return users;
       },
+      onNewMember : function(){
+        return $q(function(resolve){
+          socket.on('update:newmember', function(newUser){
+            users.push(newUser);
+            resolve(newUser);
+          })
+        })
+      },
 
       join : function(room, user){
-        return $q(function(resolve, reject){
-          socket.emit('join room', {room : room, user : user});
-          socket.on('joined', function(joinedUsers){
+        socket.emit('join:room', {room : room, user : user});
+
+        return $q(function(resolve){
+
+          socket.on('chat:members', function(joinedUsers){
             users = joinedUsers;
             resolve(joinedUsers);
-          });
+          })
         })
       }
     }

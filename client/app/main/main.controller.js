@@ -17,6 +17,10 @@
 
     this.users = groupChat.getCurrentUsers();
 
+    groupChat.onNewMember(function(user){
+      _this.users.push(user);
+    });
+
     $rootScope.$on(TASK_ADDED_EVENT, function (event, task) {
       if (!_this.currentTask && _this.currentTask != task) {
         _this.currentTask = task;
