@@ -20,6 +20,10 @@
       return loggedUser;
     };
 
+    User.isLoggedIn = function(){
+      return !!User.getLoggedInUser();
+    };
+
     return User;
   }
 
