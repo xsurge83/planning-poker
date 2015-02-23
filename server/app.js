@@ -12,8 +12,9 @@ var config = require('./config/environment');
 // Setup server
 var app = express();
 var server = require('http').createServer(app);
+var io = require('socket.io')(server);
 require('./config/express')(app);
-require('./routes')(app);
+require('./routes')(app, io);
 
 // Start server
 server.listen(config.port, config.ip, function () {
@@ -21,4 +22,4 @@ server.listen(config.port, config.ip, function () {
 });
 
 // Expose app
-exports = module.exports = app;
+module.exports = app;

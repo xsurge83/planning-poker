@@ -1,0 +1,18 @@
+<div  ng-controller="TaskCtrl as taskCtrl">
+    <div class="list-group">
+        <div class="list-group-item todo-item" ng-repeat="item in taskCtrl.taskService.tasks" ng-class="{'todo-complete': item.complete}">
+            <span class="close" ng-click="taskCtrl.removeTask($index)">&times;</span>
+            <label>
+                <input type="checkbox" ng-model="item.complete">
+                <span ng-bind="item.text">This is the content of the Todo</span>
+            </label>
+        </div>
+    </div>
+
+    <form ng-submit="taskCtrl.addTask(taskCtrl.newTask)">
+        <input type="text" ng-model="taskCtrl.newTask" class="form-control"
+               placeholder="As a/an ... I would like to .." focus>
+    </form>
+    <br/>
+    <button class="btn btn-block btn-danger" ng-click="taskCtrl.clearAll()">Clear All Items</button>
+</div>

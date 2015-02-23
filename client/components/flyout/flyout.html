@@ -1,0 +1,14 @@
+<div class='flyout-panel-aside ng-hide' ng-show="show">
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <button flyout-toggle flyout-id="tasks" class='btn btn-default flyout-panel-close-btn'>
+            <i class="glyphicon glyphicon-arrow-right"></i>
+        </button>
+
+        <div class="panel-heading">
+            {{::heading}}
+        </div>
+        <div class="panel-body" ng-transclude>
+        </div>
+    </div>
+</div>
