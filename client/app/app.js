@@ -1,6 +1,4 @@
 (function () {
-
-
   'use strict';
 
   angular.module('planningPokerApp', [
@@ -18,8 +16,6 @@
     .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
       $urlRouterProvider
         .otherwise('/login');
-
-
       $locationProvider.html5Mode(true);
     });
 
