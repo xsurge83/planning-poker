@@ -1,59 +1,64 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div class="container">
-    <div class="row" style="position: relative">
-        <a flyout-toggle flyout-id="tasks" class='btn btn-default pull-right'>
-            <i class="glyphicon glyphicon-arrow-left"></i>
-            Show Tasks
-        </a>
+  <div class="row" style="position: relative">
+    <a flyout-toggle flyout-id="tasks" class='btn btn-default pull-right'>
+      <i class="glyphicon glyphicon-arrow-left"></i>
+      Show Tasks
+    </a>
 
-        <div flyout="right"
-             flyout-id="tasks"
-             heading="Tasks">
-            <div ng-include="'app/main/task/tasks.html'"></div>
-        </div>
+    <div flyout="right"
+         flyout-id="tasks"
+         heading="Tasks">
+      <div ng-include="'app/main/task/tasks.html'"></div>
     </div>
-    <div class="row">
-        <div class="col-md-2 col-lg-2 col-sm-2">
-            <ul class="list-group">
-                <li class="list-group-item">Users</li>
-                <li class="list-group-item" ng-repeat="user in mainCtrl.users">
-                  {{user.name}}
-                  <span class="badge">{{user.vote}}</span>
-                </li>
-            </ul>
+  </div>
+  <div class="row">
+    <div class="col-md-2 col-lg-2 col-sm-2">
+      <ul class="list-group">
+        <li class="list-group-item">Users</li>
+        <li class="list-group-item" ng-repeat="user in mainCtrl.users">
+          {{user.name}}
+          <span class="badge">{{user.vote}}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <form ng-hide="mainCtrl.currentTask" ng-submit="mainCtrl.addTask(mainCtrl.newTask)">
+            <input ng-model="mainCtrl.newTask" type="text" class="form-control"
+                   placeholder="Enter new task">
+          </form>
+          <div ng-show="mainCtrl.currentTask"> current task : {{ mainCtrl.currentTask.text }}</div>
         </div>
-        <div class="col-md-8">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <form ng-hide="mainCtrl.currentTask"  ng-submit="mainCtrl.addTask(mainCtrl.newTask)">
-                        <input ng-model="mainCtrl.newTask" type="text" class="form-control"
-                                             placeholder="Enter new task">
-                    </form>
-                    <div ng-show="mainCtrl.currentTask"> current task : {{ mainCtrl.currentTask.text }}</div>
-                </div>
 
-                <div class="panel-body">
-                    <div class="btn-group btn-group-justified" role="group"  ng-show="mainCtrl.currentTask">
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default" ng-click="mainCtrl.previousTask()">Previous</button>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default">Start</button>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default" ng-click="mainCtrl.nextTask()">Next</button>
-                        </div>
-                    </div>
-                </div>
+        <div class="panel-body">
+          <div class="row text-center">
+            <timer seconds="4" start="mainCtrl.startCurrentTask"></timer>
+          </div>
+          <div class="row">
+            <div class="btn-group btn-group-justified" role="group" ng-show="mainCtrl.currentTask">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default" ng-click="mainCtrl.previousTask()">Previous</button>
+              </div>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default btn-success" ng-click="mainCtrl.startTask()">Start</button>
+              </div>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default" ng-click="mainCtrl.nextTask()">Next</button>
+              </div>
             </div>
+          </div>
         </div>
-
-        <div class="col-md-4 col-sm-4 col-lg-4 col-md-offset-2 centered">
-            <poker-cards cards="mainCtrl.cards"></poker-cards>
-        </div>
+      </div>
     </div>
+
+    <div class="col-md-4 col-sm-4 col-lg-4 col-md-offset-2 centered">
+      <poker-cards cards="mainCtrl.cards"></poker-cards>
+    </div>
+  </div>
 </div>
 <footer class="footer">
-    <div class="container">
-    </div>
+  <div class="container">
+  </div>
 </footer>

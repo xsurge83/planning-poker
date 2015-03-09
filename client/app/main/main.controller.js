@@ -13,6 +13,7 @@
     this.currentTask = null;
     this.taskService = TaskService;
     this.groupChat = groupChat;
+    this.startCurrentTask = false;
 
     this.users = groupChat.getCurrentUsers();
 
@@ -46,6 +47,10 @@
 
   MainCtrl.prototype.addTask = function addTask(task) {
     this.taskService.addTask(task);
+  };
+
+  MainCtrl.prototype.startTask = function(){
+    this.startCurrentTask = true;
   };
 
   CARDS = [

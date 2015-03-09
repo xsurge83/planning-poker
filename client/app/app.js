@@ -8,9 +8,7 @@
     'ngAnimate',
     'ui.router',
     'ui.bootstrap',
-    'planningPokerApp.components.pokerCard',
-    'planningPokerApp.components.flyout',
-    'planningPokerApp.components.inputfields'
+    'planning.components'
   ])
     .run(setupApp)
     .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
