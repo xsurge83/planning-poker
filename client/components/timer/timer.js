@@ -22,7 +22,6 @@
         reset();
 
         scope.$watch('start', function(newValue, oldValue){
-          debugger;
           if(newValue){
             reset();
             timer();

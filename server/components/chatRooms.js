@@ -1,23 +1,35 @@
 var _ = require('underscore');
 
-function ChatRooms(){
+function ChatRooms() {
   this.rooms = {};
 }
 
-ChatRooms.prototype.getRoomUsers = function(room){
-  return this.rooms[room];
-}
+ChatRooms.prototype.getRoomUsers = function (room) {
+  return this.rooms[room].users;
+};
 
-ChatRooms.prototype.addUserToRoom = function(room, user){
+ChatRooms.prototype.getTasks = function (room) {
+  this.rooms[room].tasks;
+};
+
+ChatRooms.prototype.addTask = function(room, task){
+  return this.rooms[room].tasks.push(task);
+};
+
+
+ChatRooms.prototype.addUserToRoom = function (room, user) {
   var existingUser;
-  if(this.rooms.hasOwnProperty(room)){
-    existingUser = _.findWhere(this.rooms[room], {name : user.name});
-    if(!existingUser){
-      this.rooms[room].push(user);
+  if (this.rooms.hasOwnProperty(room)) {
+    existingUser = _.findWhere(this.rooms[room].users, {name: user.name});
+    if (!existingUser) {
+      this.rooms[room].users.push(user);
     }
-
-  } else {
-    this.rooms[room] = [user];
+  }
+  else {
+    this.rooms[room] = {
+      users: [user],
+      tasks: []
+    }
   }
 }
 
