@@ -14,6 +14,7 @@
     this.taskService = TaskService;
     this.groupChat = groupChat;
     this.startCurrentTask = false;
+    this.editTaskMode = true;
 
     this.users = groupChat.getCurrentUsers();
 
@@ -25,24 +26,28 @@
       if (!_this.currentTask && _this.currentTask != task) {
         _this.currentTask = task;
       }
+      _this.editTaskMode = false;
     });
+
     $rootScope.$on(TASK_REMOVED_EVENT, function (event, task) {
       if (_this.currentTask === task) {
         _this.currentTask = null;
       }
+      _this.editTaskMode = true;
+    });
+
+    $rootScope.$on('TASK_TIMER_STARTED', function(){
+      _this.startCurrentTask = true;
+      _this.editTaskMode = false;
     });
   }
 
   MainCtrl.prototype.toggleTasks = function toggleTasks() {
     this.showTasks = !this.showTasks;
-  }
+  };
 
   MainCtrl.prototype.nextTask = function nextTask() {
     this.currentTask = this.taskService.nextTask(this.currentTask);
-  };
-
-  MainCtrl.prototype.previousTask = function previousTask() {
-    this.currentTask = this.taskService.previousTask(this.currentTask);
   };
 
   MainCtrl.prototype.addTask = function addTask(task) {
@@ -50,7 +55,8 @@
   };
 
   MainCtrl.prototype.startTask = function(){
-    this.startCurrentTask = true;
+    debugger;
+    this.taskService.timeTask(this.currentTask);
   };
 
   CARDS = [

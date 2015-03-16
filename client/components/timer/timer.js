@@ -49,7 +49,6 @@
           timerText.textContent = currentTime+1;
           percentTime = Math.round((currentTime / totalTime) * 100);
           timerCircle.style.strokeDashoffset = percentTime - 100;
-          debugger;
 
           $timeout(function(){
             timerText.textContent = currentTime;
