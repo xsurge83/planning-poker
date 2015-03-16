@@ -46,14 +46,21 @@ module.exports = function(app, io) {
         socket.emit('chat:members', chatRooms.getRoomUsers(data.room))
       });
 
-      socket.on('send:message', function(data) {
-        socket.broadcast.send(data);
+      socket.on('task:add', function(task){
+        console.log('task added to room ' + socket.room);
+
+        chatRooms.addTask(socket.room, task);
+        socket.emit('task:added', task);
+        socket.broadcast.to(socket.room).emit('task:added', task)
       });
 
-      socket.on('task:added', function(task){
-        console.log(socket.room);
-        chatRooms.addTask(socket.room, task);
-        socket.broadcast.to(socket.room).emit('task:update-new', task)
+      socket.on('timer:start', function(task){
+        socket.emit('timer:started', task);
+        socket.broadcast.to(socket.room).emit('timer:started', task);
       });
+
+      //socket.on('task-score:add', function(score){
+      //  socket.broadcast.to(socket.room).emit('task-score:added', score);
+      //});
     });
 };

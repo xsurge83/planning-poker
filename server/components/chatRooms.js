@@ -1,5 +1,6 @@
 var _ = require('underscore');
 
+var nextTaskId = 0;
 function ChatRooms() {
   this.rooms = {};
 }
@@ -13,9 +14,9 @@ ChatRooms.prototype.getTasks = function (room) {
 };
 
 ChatRooms.prototype.addTask = function(room, task){
+  task.id = nextTaskId++;
   return this.rooms[room].tasks.push(task);
 };
-
 
 ChatRooms.prototype.addUserToRoom = function (room, user) {
   var existingUser;
