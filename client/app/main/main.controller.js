@@ -18,7 +18,7 @@
 
     this.users = groupChat.getCurrentUsers();
 
-    groupChat.onNewMember(function(user){
+    groupChat.onNewMember(function (user) {
       _this.users.push(user);
     });
 
@@ -36,9 +36,16 @@
       _this.editTaskMode = true;
     });
 
-    $rootScope.$on('TASK_TIMER_STARTED', function(){
+    $rootScope.$on('TASK_TIMER_STARTED', function () {
       _this.startCurrentTask = true;
       _this.editTaskMode = false;
+    });
+
+    $rootScope.$on('TASK_POINTS_SUBMITTED', function (user, score) {
+      var userMatch = _.findWhere(_this.users, {name: user.name});
+      if (userMatch) {
+        userMatch.currentTaskPoint = score;
+      }
     });
   }
 
@@ -54,7 +61,7 @@
     this.taskService.addTask(task);
   };
 
-  MainCtrl.prototype.startTask = function(){
+  MainCtrl.prototype.startTask = function () {
     debugger;
     this.taskService.timeTask(this.currentTask);
   };

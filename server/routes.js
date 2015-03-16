@@ -59,8 +59,8 @@ module.exports = function(app, io) {
         socket.broadcast.to(socket.room).emit('timer:started', task);
       });
 
-      //socket.on('task-score:add', function(score){
-      //  socket.broadcast.to(socket.room).emit('task-score:added', score);
-      //});
+      socket.on('task-score:submit', function(user, score, task){
+        socket.broadcast.to(socket.room).emit('task-score:submitted', score);
+      });
     });
 };
